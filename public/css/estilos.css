@@ -1,0 +1,135 @@
+
+
+/* Main*/
+
+.presentacion {
+	background-image: url(../img/fondo.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	height: 90vh;
+}
+	
+	.presentacion h1 {
+		font-weight: ;
+	}
+
+	.presentacion p {
+		font-weight: bold;
+	}
+
+	.presentacion span {
+		color: #e74c3c;
+	}
+
+.nosotros {
+	background-color: #ecf0f1;
+	min-height: 425px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	color: #2c3e50;
+}
+
+	.nosotros h2 {
+		font-size: 2.5rem;
+	}
+
+	.nosotros .box {
+		width: 258px;
+		height: 258px;
+		border: 2px solid #e74c3c;
+		border-radius: 50%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: center;
+	}
+
+	.nosotros .ilustracion i {
+		font-size: 3.4rem;
+		color: #c0392b;
+	}
+
+	.nosotros .desc {
+		color: #2c3e50;
+		font-size: 1.45rem;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+.productos h2 {
+	color: #2c3e50;
+}
+
+.productos .precio a {
+	background-color: #ff3f34;
+	color: #fff;
+	border: 1px solid #ff3f34;
+}
+
+.productos .precio a:hover {
+	background-color: #fff;
+	color: #3c40c6;
+	border: 1px solid #3c40c6;
+}
+
+.productos .card-header {
+	background-color: rgba(208,241,241,0.199);
+}
+
+	.carousel-indicators {
+		bottom: -50px;
+	}
+
+	.carousel-indicators li {
+		background-color: #ffc048;
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+	}
+
+	.carousel-indicators .active {
+		background-color: #34e7e4;
+	}
+
+
+/* Footer*/
+.footer {
+	background-color: #2d3436;
+}
+
+	.list-group-item {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+	}
+
+	.redes i {
+		font-size: 1.2rem;
+	}
+
+footer {
+	background-color: #262626;
+}
+
+@media (min-width: 375px)
+{
+	.presentacion h1 {
+		font-size: 3.5rem;
+	}
+
+	.presentacion p {
+		font-size: 1rem;
+	}
+}
+
+@media (min-width: 768px)
+{
+	.presentacion h1 {
+		font-size: 6rem;
+	}
+
+	.presentacion p {
+		font-size: 1.25rem;
+	}
+}
+

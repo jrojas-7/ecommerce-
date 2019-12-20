@@ -1,0 +1,17 @@
+
+
+.img-prod {
+	width: 75px;
+}
+
+.productos-lista a {
+	background-color: #ff3f34;
+	color: #fff;
+	border: 1px solid #ff3f34;
+}
+
+.productos-lista a:hover {
+	background-color: #fff;
+	color: #3c40c6;
+	border: 1px solid #3c40c6;
+}

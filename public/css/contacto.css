@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+
+
+.titulo {
+  background-color: #3c40c6;
+}
+
+.caja-titulo {
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.caja-titulo h1 {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+
+.contacto i{
+  font-size: 1.4rem;
+}
+
+.form-item {
+  margin-bottom: 1rem;
+}
+
+.form-item label {
+  display: inline-block;
+  color: #bdc3c7;
+  font-size: 1rem;
+}
+
+.form-item input {
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  background-color: transparent;
+  padding: 0 .3rem;
+}
+
+.form-item input:focus {
+  border-bottom: 1px solid #4834d4;
+  outline: none;
+}
+
+.form-item input::placeholder {
+  color: #7f8c8d;
+}
+
+.form-item textarea {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  padding: .25rem;
+  font-size: 1.3rem;
+  color: #7f8c8d;
+}
+
+.form-item textarea:focus {
+  border: 1px solid #4834d4;
+}
+
+
+.form-item button {
+  background-color: #f0932b;
+  color: #fff;
+  border: 1px solid #f0932b; 
+}
+
+.form-item button:hover {
+  background-color: #fff;
+  color: #eb4d4b;
+  border: 1px solid #f0932b;
+}
+
+@media (min-width: 375px)
+{
+  .caja-titulo h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 768px)
+{
+  .caja-titulo h1 {
+    font-size: 5rem;
+  }
+}

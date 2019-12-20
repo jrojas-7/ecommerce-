@@ -1,0 +1,40 @@
+.titulo {
+	background-color: #ffd32a;
+}
+
+.caja-titulo {
+	height: 55vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.caja-titulo h1 {
+	font-size: 5rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.card {
+	border-bottom: 1px solid #d2dae2 !important;
+}
+
+.card-header button {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+@media (min-width: 375px)
+{
+	.caja-titulo h1 {
+		font-size: 3.4rem;
+	}
+}
+
+@media (min-width: 768px)
+{
+	.caja-titulo h1 {
+		font-size: 5rem;
+	}
+}

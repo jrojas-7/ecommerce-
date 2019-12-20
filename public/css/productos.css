@@ -1,0 +1,37 @@
+.enlace_carrito {
+	position: absolute;
+	background-color: rgba(0,0,0, .5);
+	display: none;
+}
+
+.enlace_carrito a:hover {
+	text-decoration: none;
+}
+
+.card-img:hover > .enlace_carrito {
+	display: block;
+}
+
+.card-img:hover {
+	cursor: pointer;
+}
+
+.precio {
+	font-size: 1.2rem;
+}
+
+.stock {
+	color: #5cb85c !important; 
+	font-weight: bold;
+}
+
+.poco-stock {
+	color: #f0ad4e !important;
+	font-weight: bold;
+}
+
+.sin-stock {
+	color: #d9534f !important;
+	font-weight: bold; 
+}
+
