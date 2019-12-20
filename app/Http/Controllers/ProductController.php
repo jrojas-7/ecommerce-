@@ -120,10 +120,10 @@ class ProductController extends Controller
     {
         $categories = Categoria::all();
 
-        $category = Categoria::where('titulo', '=', $title)->firstOrFail();
-        $categoryTitle = $category->titulo;
+        $categoria = Categoria::where('titulo', '=', $title)->firstOrFail();
+        /*$categoryTitle = $category->titulo;*/
 
-        $products = Producto::where('categoria_id', '=', $category->id);
+        $products = Producto::where('categoria_id', '=', $categoria->id);
 
         if (request()->orden === 'menor_a_mayor')
         {
@@ -135,7 +135,7 @@ class ProductController extends Controller
             $products = $products->paginate(9);
         }
 
-        return view('products.category', compact('products', 'categoryTitle', 'categories'));
+        return view('products.category', compact('products', 'categoria', 'categories'));
 
     }
 }
