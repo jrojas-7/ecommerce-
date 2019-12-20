@@ -1,38 +1,42 @@
-<header class="navbar navbar-expand-md navbar-dark bg-dark">
-
+<header class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container">
+        <a class="navbar-brand" href="{{ route('home') }}">
+            <img src="/img/logo.png" width="50" height="50" alt="logo">
+        </a>
 
-        {{-- BOTON --}}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#menu">
+            <i class="fas fa-bars"></i>
         </button>
 
-        {{-- LOGO --}}
-        <a href="{{ route('home') }}" class="navbar-brand">Korbax</a>
-
-        {{-- CARRITO --}}
-        <div class="order-md-last">
-            <a href="" class="mx-1">Registro</a>
-            <a href="" class="mx-1">Login</a>
-            <a href="">Deslogearse</a>
-            <a href=""><i class="fas fa-shopping-cart"></i></a>
-        </div>
-
-        {{-- MENU COLAPSABLE --}}
         <div class="collapse navbar-collapse" id="menu">
-            <div class="navbar-nav ml-md-auto mr-md-auto">
-                <a href="{{ route('home') }}" class="nav-item nav-link {{ setActive('home') }}">Inicio</a>
-                <a href="{{ route('products.index') }}" class="nav-item nav-link {{ setActive('products.index') }} {{ setActive('products.searchCategory') }}">Productos</a>
-                <a href="{{ route('faq') }}" class="nav-item nav-link {{ setActive('faq') }}">F.A.Q.</a>
-                <a href="{{ route('contact') }}" class="nav-item nav-link {{ setActive('contact') }}">Contacto</a>
-            </div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link {{ setActive('home') }}" href="{{ route('home') }}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link {{ setActive('products.index') }} {{ setActive('products.searchCategory') }}" href="{{ route('products.index') }} ">Productos</a></li>
+                <li class="nav-item"><a class="nav-link {{ setActive('faq') }}" href="{{ route('faq') }}">F.A.Q.</a></li>
+                @guest
+                    <li class="nav-item"><a class="nav-link {{ setActive('register') }}" href="{{ route('register') }}">Registrarse</a></li>
+                    <li class="nav-item"><a class="nav-link {{ setActive('login') }}" href="{{ route('login') }}">Login</a></li>
+                @else
+                    <li class="nav-item"><a class="nav-link {{ setActive('profile.index') }}" href="{{ route('profile.index') }}">Mi perfil</a></li>
+                @endguest
+                <li class="nav-item"><a class="nav-link {{ setActive('contact') }}" href="{{ route('contact') }}">Contacto</a></li>
+                @auth
+                    <li class="nav-item"><a class="nav-link" href="#"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"
+                    >Deslogearse</a></li>
+                @endauth
+                <li class="nav-item">
+                    <a class="nav-link {{ setActive('cart.index') }}" href="{{ route('cart.index') }}">Carrito
+                        @if(Cart::count() > 0)
+                            <span class="cart-indicator">{{ Cart::count() }}</span>
+                        @endif
+                    </a>
+                </li>
+            </ul>
         </div>
-
-
     </div>
-
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
-
 </header>

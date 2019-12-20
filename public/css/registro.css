@@ -27,7 +27,7 @@
   margin-bottom: 16px;
   border: 1px solid #D3CDCD;
   font-size: 18px;
-  
+
 }
 
 .form-register p {
@@ -57,7 +57,7 @@ p label {
 }
 
 @media (max-width: 420px) {
-  
+
   .form-register {
     width: 100%;
   }

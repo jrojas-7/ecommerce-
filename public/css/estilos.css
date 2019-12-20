@@ -9,7 +9,7 @@
 	background-position: center;
 	height: 90vh;
 }
-	
+
 	.presentacion h1 {
 		font-weight: ;
 	}
@@ -133,3 +133,14 @@ footer {
 	}
 }
 
+.cart-indicator {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: black;
+	text-align: center;
+	line-height: 20px;
+	color: white;
+	font-weight: bold;
+}

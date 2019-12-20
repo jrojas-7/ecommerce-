@@ -28,14 +28,26 @@
 					</div>
 					<div class="col-12 col-lg-9">
 						<div class="row">
-
+							<div class="col-12">
+								<h3 class="display-4" style="font-size: 30px;">Recomendados</h3>
+								<hr>
+							</div>
 							@foreach($products as $product)
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="card text-center border-0 shadow-sm mb-4">
 										<div class="card-img d-flex flex-wrap justify-content-center">
 											<img src="/img/products/producto.png" class="card-img-top" alt="">
 											<div class="enlace_carrito align-self-center py-2 px-4">
-												<a class="text-white" href="#">Agregar al carrito</a>
+												<a class="text-white" href="#" onclick="event.preventDefault();
+                        document.getElementById('cart-form').submit();">Agregar al carrito</a>
+
+												<form action="{{ route('cart.index') }}" method="post" id="cart-form" style="display: none;">
+													{{ csrf_field() }}
+													<input type="hidden" name="id" value=" {{ $product->id }} ">
+													<input type="hidden" name="nombre" value=" {{ $product->nombre }} ">
+													<input type="hidden" name="precio" value=" {{ $product->precio }} ">
+												</form>
+
 											</div>
 										</div>
 										<div class="card-body">
@@ -58,4 +70,6 @@
 				</div>
 			</div>
 		</main>
+
+
 @endsection

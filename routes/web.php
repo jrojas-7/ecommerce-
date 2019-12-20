@@ -1,23 +1,27 @@
 <?php
-
+//Inicio
 Route::get('/', 'HomeController@index')->name('home');
 
+//Productos
 Route::get('productos', 'ProductController@index')->name('products.index');
 Route::get('productos/categoria/{title}', 'ProductController@searchCategory')->name('products.searchCategory');
 Route::get('productos/{product}', 'ProductController@show')->name('products.show');
 
-
 /*Route::get('productos/agregar', 'ProductController@create')->name('products.create');
 Route::post('productos/agregar', 'ProductController@store');*/
 
+//FAQ
 Route::view('faq', 'faq')->name('faq');
 
+//Perfil
 Route::get('perfil', 'ProfileController@index')->name('profile.index');
 Route::get('perfil/configuracion', 'ProfileController@edit')->name('profile.edit');
 Route::post('perfil/configuracion', 'ProfileController@update');
 
+//Contacto
 Route::get('contacto', 'ContactController@index')->name('contact');
 
+//Carrito
 Route::get('carrito', 'CartController@index')->name('cart.index');
 Route::post('carrito', 'CartController@store');
 Route::get('carrito/destruir', 'CartController@destroyCart')->name('cart.destroyCart');
@@ -46,4 +50,3 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 
 
 // Route::view('/', 'home')->name('home'); Mejor metodo para paginas que no requieran mucha logica, ej: politicas de privacidad, terminos y condiciones
-

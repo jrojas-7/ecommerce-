@@ -39,7 +39,7 @@
                                 <input class="boton" type="submit" name="ingresar" value="Ingresar">
                                 <p><a href="/registro">¿No tenes una cuenta?</a></p>
                                 <div class="text-center">
-                                    <input type="checkbox" id="recordar" name="recordar" value="recordar" {{ old('recordar') ? 'checked' : '' }}>
+                                    <input type="checkbox" id="recordar" name="recordar" value="recordar" checked {{ old('recordar') ? 'checked' : '' }}>
                                     <label for="recordar" style="display: inline">Recordar usuario</label>
                                 </div>
                            </form>

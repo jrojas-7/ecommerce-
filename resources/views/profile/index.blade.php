@@ -19,13 +19,16 @@
 								<h4>
 									<span>{{ Auth::user()->nombreCompleto() }}</span>
 								</h4>
+								<h4>
+									<span>{{ Auth::user()->email }}</span>
+								</h4>
 							</div>
 						</div>
 						<div class="col-12 text-center">
 							<ul class="nav flex-column">
 								<li class="nav-item"><a class="nav-link" href="{{ route('profile.edit')}} ">Configuración de cuenta</a></li>
-								<li class="nav-item"><a class="nav-link" href="">Ayuda</a></li>
-								<li class="nav-item">
+								{{-- <li class="nav-item"><a class="nav-link" href="">Ayuda</a></li> --}}
+								{{--<li class="nav-item">
 									<a class="nav-link" href="#carrito" data-toggle="collapse">Carrito</a>
 									<div class="collapse mb-3" id="carrito">
 										<h4>Detalles de la compra</h4>
@@ -40,7 +43,7 @@
 											<a class="btn px-4 py-2 rounded-pill" href="#">Pagar</a>
 										</div>
 									</div>
-								</li>
+								</li> --}}
 							</ul>
 						</div>
 					</div>

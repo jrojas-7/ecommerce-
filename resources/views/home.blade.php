@@ -13,7 +13,7 @@
 					<div class="d-flex flex-column flex-wrap justify-content-center align-items-center text-light">
 						<h1 class="display-1">Bienvenidos</h1>
 						<p class="lead text-center">
-							En <span>Korbax</span> encontrarás todo lo que necesitás para tu hogar al mejor precio.
+							En <span>Ecommerce</span> encontrarás todo lo que necesitás para tu hogar al mejor precio.
 						</p>
 						<p class="lead text-center">Muebles de oficina, jardineria, articulos de limpieza, camas, sillones y más.</p>
 					</div>
@@ -82,7 +82,7 @@
 							    <div class="carousel-item active">
 							      <div class="row">
 
-										@foreach($productos as $producto)
+									{{--	@foreach($productos as $producto)
 											<div class="col-lg-4">
 												<article class="card text-center">
 													<a href=" {{ route('products.show', $producto->titulo) }} ">
@@ -94,7 +94,7 @@
 														</a>
 													</div>
 													<div class="card-body">
-														{{-- <p class="card-text">Breve descripción</p> --}}
+
 														<div class="precio">
 															<p>${{ $producto->precio }} </p>
 															<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
@@ -102,16 +102,32 @@
 													</div>
 												</article>
 											</div>
-										@endforeach
+										@endforeach --}}
 
-							      	{{-- <div class="col-lg-4">
+										<div class="col-lg-4">
+										 <article class="card text-center">
+									 <img src="img/mueble1.jpg" class="card-img-top" alt="">
+									 <div class="card-header border-bottom-0">
+										 <h3 class="card-title">Mueble vintage</h3>
+									 </div>
+									 <div class="card-body">
+
+										 <div class="precio">
+											 <p>$999</p>
+											 <a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
+										 </div>
+									 </div>
+								 </article>
+									 </div>
+
+							      	 <div class="col-lg-4">
 							      		<article class="card text-center">
 											<img src="img/cama2.webp" class="card-img-top" alt="">
 											<div class="card-header border-bottom-0">
 												<h3 class="card-title">Colchon Topper</h3>
 											</div>
 											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
+
 												<div class="precio">
 													<p>$999</p>
 													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
@@ -126,14 +142,15 @@
 												<h3 class="card-title">Protector de sofá</h3>
 											</div>
 											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
+
 												<div class="precio">
 													<p>$999</p>
 													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
 												</div>
 											</div>
 										</article>
-							      	</div> --}}
+							      	</div>
+
 							      </div>
 							    </div>
 							    <div class="carousel-item">
@@ -145,7 +162,7 @@
 												<h3 class="card-title">Protector de colchón</h3>
 											</div>
 											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
+
 												<div class="precio">
 													<p>$999</p>
 													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
@@ -160,7 +177,7 @@
 												<h3 class="card-title">Trapero giratorio</h3>
 											</div>
 											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
+
 												<div class="precio">
 													<p>$999</p>
 													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
@@ -175,7 +192,7 @@
 												<h3 class="card-title">Plancha a vapor</h3>
 											</div>
 											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
+
 												<div class="precio">
 													<p>$999</p>
 													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
@@ -209,7 +226,7 @@
 												<h3 class="card-title">Titulo del producto</h3>
 											</div>
 											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
+
 												<div class="precio">
 													<p>$999</p>
 													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
@@ -224,41 +241,7 @@
 												<h3 class="card-title">Titulo del producto</h3>
 											</div>
 											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
-												<div class="precio">
-													<p>$999</p>
-													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
-												</div>
-											</div>
-										</article>
-							      	</div>
-							      </div>
-							    </div>
-							    <div class="carousel-item">
-							      <div class="row">
-							      	<div class="col-md-6">
-							      		<article class="card text-center">
-											<img src="img/silla1.jpeg" class="card-img-top" alt="">
-											<div class="card-header border-bottom-0">
-												<h3 class="card-title">Titulo del producto</h3>
-											</div>
-											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
-												<div class="precio">
-													<p>$999</p>
-													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
-												</div>
-											</div>
-										</article>
-							      	</div>
-							      	<div class="col-md-6">
-							      		<article class="card text-center">
-											<img src="img/silla1.jpeg" class="card-img-top" alt="">
-											<div class="card-header border-bottom-0">
-												<h3 class="card-title">Titulo del producto</h3>
-											</div>
-											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
+
 												<div class="precio">
 													<p>$999</p>
 													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
@@ -277,7 +260,7 @@
 												<h3 class="card-title">Titulo del producto</h3>
 											</div>
 											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
+
 												<div class="precio">
 													<p>$999</p>
 													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
@@ -292,7 +275,41 @@
 												<h3 class="card-title">Titulo del producto</h3>
 											</div>
 											<div class="card-body">
-												<p class="card-text">Breve descripción</p>
+
+												<div class="precio">
+													<p>$999</p>
+													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
+												</div>
+											</div>
+										</article>
+							      	</div>
+							      </div>
+							    </div>
+							    <div class="carousel-item">
+							      <div class="row">
+							      	<div class="col-md-6">
+							      		<article class="card text-center">
+											<img src="img/silla1.jpeg" class="card-img-top" alt="">
+											<div class="card-header border-bottom-0">
+												<h3 class="card-title">Titulo del producto</h3>
+											</div>
+											<div class="card-body">
+
+												<div class="precio">
+													<p>$999</p>
+													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>
+												</div>
+											</div>
+										</article>
+							      	</div>
+							      	<div class="col-md-6">
+							      		<article class="card text-center">
+											<img src="img/silla1.jpeg" class="card-img-top" alt="">
+											<div class="card-header border-bottom-0">
+												<h3 class="card-title">Titulo del producto</h3>
+											</div>
+											<div class="card-body">
+
 												<div class="precio">
 													<p>$999</p>
 													<a class="btn px-5 py-2 rounded-pill" href="#">Sumar al carrito</a>

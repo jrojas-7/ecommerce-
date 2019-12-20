@@ -7,13 +7,17 @@
 		.img-prod {
 			width: 100%;
 		}
+
+		.cart {
+			min-height: 60vh;
+		}
 	</style>
 
 @endsection
 
 @section('content')
 
-	<section class="cart">
+	<section class="cart my-3">
 		<div class="container">
 
 			@if(session()->has('succes_msg'))
@@ -28,6 +32,7 @@
 				<hr>
 
 				@foreach(Cart::content() as $product)
+				{{--	{{dd($product->model)}} --}}
 					<div class="row">
 						<div class="col-12 col-lg-2">
 							<div class="product-img">
@@ -39,7 +44,7 @@
 						<div class="col-12 col-lg-4">
 							<div class="productos-lista">
 								<h5><a href="{{ route('products.show', $product->model->titulo) }}">{{ $product->model->nombre }} </a></h5>
-								<p>Breve descripcion</p>
+
 							</div>
 						</div>
 						<div class="col-12 col-lg-3">
@@ -50,7 +55,7 @@
 									{{ method_field('DELETE') }}
 									<input type="submit" class="btn btn-outline-dark" value="Quitar">
 								</form>
-								<a href="#" class="save">Guardar para despues</a>
+								{{--<a href="#" class="save">Guardar para despues</a> --}}
 							</div>
 						</div>
 						<div class="col-12 col-lg-1">
@@ -80,7 +85,8 @@
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<a class="btn px-4 py-2 rounded-pill" href="#">Pagar</a>
+						<a class="btn px-4 py-2 rounded-pill btn-outline-dark" href="#">Pagar</a>
+						<a class="btn px-4 py-2 rounded-pill btn-danger" href="{{ route('cart.destroyCart') }}">Quitar todo</a>
 					</div>
 				</div>
 			@else
