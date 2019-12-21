@@ -1,3 +1,5 @@
+//En proceso: validaciones de formularios con js, funcionalidad completa del carrito, frontend con js, ajax, login con google o facebook, api de mercadopago.
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
