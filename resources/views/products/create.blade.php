@@ -20,7 +20,6 @@
 				<div class="col col-lg-6">
 					<div class="form-box">
 						<form action="{{ route('products.create') }}" method="POST" enctype="multipart/form-data">
-							{{ csrf_field() }}
 
 							@include('products._form')
 

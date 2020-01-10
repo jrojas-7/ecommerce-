@@ -18,7 +18,7 @@
 </div>
 <div>
 	<label for="imagen">Imagen</label><br>
-	<input type="file" name="imagen" id="imagen" value="{{ old('imagen', $product->imagen) }}">
+	<input type="file" name="imagen" id="imagen" {{-- value="{{ old('imagen', $product->imagen) }}" --}}>
 </div>
 <div>
 	<label for="descripcion">Descripción</label><br>
@@ -29,7 +29,7 @@
 	<select name="categoria" id="categoria">
 
 		@foreach($categories as $category)
-			<option value="{{ $category->id }}" {{ setSelected($category->titulo, $product->categoria->titulo) }} >{{ $category->nombre }}</option>
+			<option value="{{ $category->id }}" {{ $product->categoria ? setSelected($category->titulo, $product->categoria->titulo) : '' }} >{{ $category->nombre }}</option>
 		@endforeach
 
 	</select>

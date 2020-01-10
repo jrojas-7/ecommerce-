@@ -48,7 +48,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create', ['product' => new Producto()]);
+        return view('products.create', [
+            'product' => new Producto(),
+            'categories' => Categoria::all()
+        ]);
     }
 
     /**
@@ -59,7 +62,25 @@ class ProductController extends Controller
      */
     public function store(SaveProductRequest $request)
     {
+        $nombreImagen = null;
 
+        if ($request->hasFile('imagen'))
+        {
+            $path = $request->file('imagen')->store('public/productos');
+            $nombreImagen = basename($path);
+        }
+
+        $product = Producto::create([
+            'nombre' => $request->nombre,
+            'titulo' => $request->titulo,
+            'precio' => $request->precio,
+            'stock' => $request->stock,
+            'imagen' => $nombreImagen,
+            'descripcion' => $request->descripcion,
+            'categoria_id' => $request->categoria
+        ]);
+
+        return redirect()->route('products.show', $product->id);
     }
 
     /**
@@ -68,9 +89,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($id)
     {
-        $product = Producto::where('titulo', '=', $title)->firstOrFail();
+        $product = Producto::find($id);
 
         return view('products.show', compact('product'));
     }
@@ -83,7 +104,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Producto::where('id', '=', $id)->firstOrFail();
+        $product = Producto::find($id);
         $categories = Categoria::all();
 
         return view('products.edit', compact('product', 'categories'));
@@ -98,7 +119,7 @@ class ProductController extends Controller
      */
     public function update(SaveProductRequest $request, $id)
     {
-        $product = Producto::where('id', '=', $id)->firstOrFail();
+        $product = Producto::find($id);
         $nombreImagen = null;
 
         if ($request->hasFile('imagen'))
@@ -117,7 +138,7 @@ class ProductController extends Controller
             'categoria_id' => $request->categoria
         ]);
 
-        return redirect()->route('products.show', $product->titulo);
+        return redirect()->route('products.show', $product->id);
     }
 
     /**
@@ -128,7 +149,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Producto::destroy($id);
+
+        return redirect()->route('products.index');
     }
 
     public function searchCategory($title)
@@ -136,7 +159,6 @@ class ProductController extends Controller
         $categories = Categoria::all();
 
         $categoria = Categoria::where('titulo', '=', $title)->firstOrFail();
-        /*$categoryTitle = $category->titulo;*/
 
         $products = Producto::where('categoria_id', '=', $categoria->id);
 

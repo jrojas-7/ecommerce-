@@ -54,7 +54,7 @@
 											<h3 class="card-title">{{ $product->nombre }}</h3>
 											<p class="precio">${{ $product->precio }}</p>
 											<p class="card-text"><span class="text-muted stock {{ setStock($product->stock) }} "> {{ stock($product->stock) }} </span></p>
-											<a class="btn btn-outline-info px-5 py-2 rounded-pill mb-2" href="{{ route('products.show', $product->titulo) }}">Ver más</a>
+											<a class="btn btn-outline-info px-5 py-2 rounded-pill mb-2" href="{{ route('products.show', $product->id) }}">Ver más</a>
 											<a class="btn btn-outline-info px-5 py-2 rounded-pill" href="{{ route('products.edit', $product->id) }}">Editar</a>
 										</div>
 									</div>
