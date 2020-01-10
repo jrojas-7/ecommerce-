@@ -36,7 +36,7 @@
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="card text-center border-0 shadow-sm mb-4">
 										<div class="card-img d-flex flex-wrap justify-content-center">
-											<img src="/img/products/producto.png" class="card-img-top" alt="">
+											<img src="{{ imgProduct($product) }}" class="card-img-top" alt="">
 											<div class="enlace_carrito align-self-center py-2 px-4">
 												<a class="text-white" href="#" onclick="event.preventDefault();
                         document.getElementById('cart-form').submit();">Agregar al carrito</a>
@@ -54,7 +54,8 @@
 											<h3 class="card-title">{{ $product->nombre }}</h3>
 											<p class="precio">${{ $product->precio }}</p>
 											<p class="card-text"><span class="text-muted stock {{ setStock($product->stock) }} "> {{ stock($product->stock) }} </span></p>
-											<a class="btn btn-outline-info px-5 py-2 rounded-pill" href="{{ route('products.show', $product->titulo) }}">Ver más</a>
+											<a class="btn btn-outline-info px-5 py-2 rounded-pill mb-2" href="{{ route('products.show', $product->titulo) }}">Ver más</a>
+											<a class="btn btn-outline-info px-5 py-2 rounded-pill" href="{{ route('products.edit', $product->id) }}">Editar</a>
 										</div>
 									</div>
 								</div>

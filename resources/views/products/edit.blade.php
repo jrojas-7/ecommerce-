@@ -1,9 +1,8 @@
 @extends('layouts.default')
 
-@section('title', 'Agregar producto')
+@section('title', 'Editar producto')
 
 @section('css')
-
 
 @endsection
 
@@ -13,14 +12,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col col-lg-6">
-					<div class="imagen-box">
+					<div class="foto-box">
 						<img class="w-25 border foto" src="{{ imgProduct($product) }}" alt="imagen" style="background-color: white">
 					</div>
 				</div>
 				<div class="col col-lg-6">
 					<div class="form-box">
-						<form action="{{ route('products.create') }}" method="POST" enctype="multipart/form-data">
-							{{ csrf_field() }}
+						<form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+							{{ method_field('PATCH') }}
 
 							@include('products._form')
 

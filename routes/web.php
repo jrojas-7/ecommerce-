@@ -1,33 +1,43 @@
 <?php
 //Inicio
+
 Route::get('/', 'HomeController@index')->name('home');
 
 //Productos
+
 Route::get('productos', 'ProductController@index')->name('products.index');
 Route::get('productos/categoria/{title}', 'ProductController@searchCategory')->name('products.searchCategory');
+Route::get('productos/agregar', 'ProductController@create')->name('products.create');
+Route::post('productos/agregar', 'ProductController@store');
+Route::get('productos/editar/{id}', 'ProductController@edit')->name('products.edit');
+Route::patch('productos/editar/{id}', 'ProductController@update')->name('products.update');
 Route::get('productos/{product}', 'ProductController@show')->name('products.show');
 
-/*Route::get('productos/agregar', 'ProductController@create')->name('products.create');
-Route::post('productos/agregar', 'ProductController@store');*/
+
 
 //FAQ
+
 Route::view('faq', 'faq')->name('faq');
 
 //Perfil
+
 Route::get('perfil', 'ProfileController@index')->name('profile.index');
 Route::get('perfil/configuracion', 'ProfileController@edit')->name('profile.edit');
 Route::post('perfil/configuracion', 'ProfileController@update');
 
 //Contacto
+
 Route::get('contacto', 'ContactController@index')->name('contact');
 
 //Carrito
+
 Route::get('carrito', 'CartController@index')->name('cart.index');
 Route::post('carrito', 'CartController@store');
 Route::get('carrito/destruir', 'CartController@destroyCart')->name('cart.destroyCart');
 Route::delete('carrito/{id}', 'CartController@destroy')->name('cart.destroy');
 
 // Rutas de Autenticación
+
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');

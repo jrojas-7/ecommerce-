@@ -28,7 +28,7 @@
 			<div class="row">
 				<div class="col-12 col-lg-6">
 					<div class="product-img">
-						<img src="/img/products/producto.png" alt="product">
+						<img src="{{ imgProduct($product) }}" alt="product">
 					</div>
 				</div>
 				<div class="col-12 col-lg-6">

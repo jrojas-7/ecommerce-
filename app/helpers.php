@@ -1,11 +1,18 @@
 <?php
 
+use App\Producto;
+
 function setActive(string $routeName): string
 {
 	return request()->routeIs($routeName) ? 'active' : '';
 }
 
-function imgProfile($user)
+function setSelected(string $category, string $productCategory): string
+{
+	return $category === $productCategory ? 'selected' : '';
+}
+
+function imgProfile($user): string
 {
 	if ($user)
 	{
@@ -18,6 +25,11 @@ function imgProfile($user)
 	} else {
 		return 'img/perfil.png';
 	}
+}
+
+function imgProduct(Producto $product): string
+{
+	return $product->imagen ? '/storage/productos/' . $product->imagen : '/img/products/producto.png';
 }
 
 function stock(int $stock): string

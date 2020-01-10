@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Http\Requests\SaveProductRequest;
 use App\Categoria;
 use App\Producto;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -47,7 +48,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('products.create', ['product' => new Producto()]);
     }
 
     /**
@@ -56,18 +57,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveProductRequest $request)
     {
-        $this->validate($request, [
-            'nombre' => 'required',
-            'precio' => 'required',
-            'stock' => 'required',
-            'description' => 'required',
-            'categoria' => 'required',
-            'marca' => 'required'
-        ], [
-            'required' => 'El :attribute es obligatorio'
-        ]);
+
     }
 
     /**
@@ -79,6 +71,7 @@ class ProductController extends Controller
     public function show($title)
     {
         $product = Producto::where('titulo', '=', $title)->firstOrFail();
+
         return view('products.show', compact('product'));
     }
 
@@ -90,7 +83,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Producto::where('id', '=', $id)->firstOrFail();
+        $categories = Categoria::all();
+
+        return view('products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -100,9 +96,28 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SaveProductRequest $request, $id)
     {
-        //
+        $product = Producto::where('id', '=', $id)->firstOrFail();
+        $nombreImagen = null;
+
+        if ($request->hasFile('imagen'))
+        {
+            $path = $request->file('imagen')->store('public/productos');
+            $nombreImagen = basename($path);
+        }
+
+        $product->update([
+            'nombre' => $request->nombre,
+            'titulo' => $request->titulo,
+            'precio' => $request->precio,
+            'stock' => $request->stock,
+            'imagen' => $nombreImagen,
+            'descripcion' => $request->descripcion,
+            'categoria_id' => $request->categoria
+        ]);
+
+        return redirect()->route('products.show', $product->titulo);
     }
 
     /**
