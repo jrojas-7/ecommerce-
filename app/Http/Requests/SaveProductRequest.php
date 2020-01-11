@@ -24,8 +24,8 @@ class SaveProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|max:255|string',
-            'titulo' => 'required|max:30|string',
+            'nombre' => 'required|string|max:255',
+            'titulo' => 'required|string|max:30',
             'precio' => 'required|numeric|min:0',
             'stock' => 'required|numeric|min:0',
             'imagen' => 'image',

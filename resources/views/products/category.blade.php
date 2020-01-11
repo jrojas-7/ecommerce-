@@ -4,6 +4,11 @@
 
 @section('css')
 	<link rel="stylesheet" href="/css/productos.css">
+	<style>
+		.activo {
+			background-color: #000 !important;
+		}
+	</style>
 @endsection
 
 @section('content')
@@ -14,8 +19,11 @@
 					<div class="col-12 col-lg-3 mb-3">
 						<ul class="nav flex-column">
 							<span class="py-3 mb-2 bg-warning text-white text-center text-uppercase font-weight-bold h4 rounded">Categorias</span>
+
 							@foreach($categories as $category)
-								<li class="nav-item"><a class="pl-2 rounded nav-link bg-dark mb-1 text-white" href="{{ route('products.searchCategory', ['title' => $category->titulo]) }}">{{ $category->nombre }}</a></li>
+								<li class="nav-item"><a class="pl-2 rounded nav-link bg-dark mb-1 text-white
+									{{ route('products.searchCategory', $category->titulo) === request()->url() ? 'activo' : '' }}
+									" href="{{ route('products.searchCategory', $category->titulo) }}">{{ $category->nombre }}</a></li>
 							@endforeach
 
 							{{-- <li class="nav-item"><a class="pl-2 rounded nav-link bg-dark mb-1 text-white" href="#">Sillones</a></li> --}}
