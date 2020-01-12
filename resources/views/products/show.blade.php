@@ -54,13 +54,17 @@
 							@endif
 						</form>
 
-						<a class="btn btn-outline-danger mb-2" href="{{ route('products.edit', $product->id) }}">Editar</a>
+						@auth
+							@if(auth()->user()->is_admin == 1)
+								<a class="btn btn-outline-danger mb-2" href="{{ route('products.edit', $product->id) }}">Editar</a>
 
-						<form action="{{ route('products.destroy', $product->id) }}" method="POST">
-							{{ csrf_field() }}
-							{{ method_field('DELETE') }}
-							<input type="submit" class="btn btn-outline-danger" value="Eliminar">
-						</form>
+								<form action="{{ route('products.destroy', $product->id) }}" method="POST">
+									{{ csrf_field() }}
+									{{ method_field('DELETE') }}
+									<input type="submit" class="btn btn-outline-danger" value="Eliminar">
+								</form>
+							@endif
+						@endauth
 				</div>
 				</div>
 			</div>

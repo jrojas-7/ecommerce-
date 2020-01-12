@@ -26,7 +26,6 @@
 									" href="{{ route('products.searchCategory', $category->titulo) }}">{{ $category->nombre }}</a></li>
 							@endforeach
 
-							{{-- <li class="nav-item"><a class="pl-2 rounded nav-link bg-dark mb-1 text-white" href="#">Sillones</a></li> --}}
 						</ul>
 						<ul class="nav flex-column">
 							<span class="py-2 mb-2 mt-1 bg-warning text-white text-center text-uppercase font-weight-bold h4 rounded">Precio</span>
@@ -65,7 +64,11 @@
 											<p class="precio">${{ $product->precio }}</p>
 											<p class="card-text"><span class="text-muted stock {{ setStock($product->stock) }} "> {{ stock($product->stock) }} </span></p>
 											<a class="btn btn-outline-info px-5 py-2 rounded-pill mb-2" href="{{ route('products.show', $product->id) }}">Ver más</a>
-											<a class="btn btn-outline-info px-5 py-2 rounded-pill" href="{{ route('products.edit', $product->id) }}">Editar</a>
+											@auth
+												@if(auth()->user()->is_admin == 1)
+													<a class="btn btn-outline-info px-5 py-2 rounded-pill" href="{{ route('products.edit', $product->id) }}">Editar</a>
+												@endif
+											@endauth
 										</div>
 									</div>
 								</div>

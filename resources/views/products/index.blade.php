@@ -17,14 +17,7 @@
 							@foreach($categories as $category)
 								<li class="nav-item"><a class="pl-2 rounded nav-link bg-dark mb-1 text-white" href="{{ route('products.searchCategory', ['title' => $category->titulo]) }}">{{ $category->nombre }}</a></li>
 							@endforeach
-
-							{{-- <li class="nav-item"><a class="pl-2 rounded nav-link bg-dark mb-1 text-white" href="#">Sillones</a></li> --}}
 						</ul>
-						{{-- <ul class="nav flex-column">
-							<span>Precio</span>
-							<li><a href="{{ route('products.index', ['categoria' => request()->categoria, 'orden' => 'menor_a_mayor']) }}">Menor a mayor</a></li>
-							<li><a href="{{ route('products.index', ['categoria' => request()->categoria, 'orden' => 'mayor_a_menor']) }}">Mayor a menor</a></li>
-						</ul> --}}
 					</div>
 					<div class="col-12 col-lg-9">
 						<div class="row">
@@ -55,17 +48,15 @@
 											<p class="precio">${{ $product->precio }}</p>
 											<p class="card-text"><span class="text-muted stock {{ setStock($product->stock) }} "> {{ stock($product->stock) }} </span></p>
 											<a class="btn btn-outline-info px-5 py-2 rounded-pill mb-2" href="{{ route('products.show', $product->id) }}">Ver más</a>
-											<a class="btn btn-outline-info px-5 py-2 rounded-pill" href="{{ route('products.edit', $product->id) }}">Editar</a>
+											@auth
+												@if(auth()->user()->is_admin == 1)
+													<a class="btn btn-outline-info px-5 py-2 rounded-pill" href="{{ route('products.edit', $product->id) }}">Editar</a>
+												@endif
+											@endauth
 										</div>
 									</div>
 								</div>
 							@endforeach
-
-
-							{{-- <div class="col">
-								{{ $products->appends(request()->input())->links() }}
-							</div> --}}
-
 						</div>
 					</div>
 				</div>
