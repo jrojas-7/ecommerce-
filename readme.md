@@ -1,4 +1,4 @@
-// En proceso: validaciones de formularios con js, abm productos, funcionalidad completa del carrito, frontend con js, ajax, login con google o facebook, api de mercadopago.
+// En proceso: validaciones de formularios con js, funcionalidad completa del carrito, frontend con js, ajax, login con google o facebook, api de mercadopago.
 
 http://korbax.dhalumnos.com/
 
