@@ -1,6 +1,11 @@
-// En proceso: validaciones de formularios con js, funcionalidad completa del carrito, frontend con js, ajax, login con google o facebook, api de mercadopago.
+// Projecto en curso:
+Terminado: Diseño responsive con HTML, CSS y Bootstrap, base de datos MySQL, validaciones del lado del servidor y catálogo de productos con PHP y Laravel, ABM de productos (Alta, baja y modificación).
+
+En proceso: Funcionalidad completa del carro de compras, validación del lado del cliente con JavaScript, Ajax, Login con Google o Facebook, implementacion de api de Mercadopago.
 
 http://korbax.dhalumnos.com/
+Usuario administrador: admin@example.com
+Contraseña: 12345
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
